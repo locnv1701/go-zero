@@ -11,6 +11,7 @@ type Response struct {
 
 type User struct {
 	Id              uint   `json:"id"`
+	Uid             uint   `json:"uid"`
 	Username        string `json:"username"`
 	Gender          int    `json:"gender"`
 	Email           string `json:"email"`
@@ -18,22 +19,27 @@ type User struct {
 }
 
 type LoginReq struct {
-	Username string `form:"username"`
-	Password string `form:"password"`
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 type LoginRes struct {
-	Info  User   `json:"info"`
+	UserId  int   `json:"userId"`
 	Token string `json:"token"`
 }
 
 type RegisterReq struct {
-	Username  string `form:"username"`
-	Password  string `form:"password"`
-	Tel       int    `form:"tel"`
-	AvatarUrl string `form:"avatar_url"`
+	Username  string `json:"username"`
+	Password  string `json:"password"`
+	Tel       int    `json:"tel"`
 }
 
-type RegisterRes struct {
+type UserInfoRes struct {
+	UserInfo      User          `json:"user_info"`
+}
+
+
+type UserInfoReq struct {
+	Username  string `json:"username"`
 	Uid uint32 `json:"uid"`
 }

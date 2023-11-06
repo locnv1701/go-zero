@@ -1,3 +1,17 @@
 Name: greet-api
-Host: 0.0.0.0
+Host: localhost
 Port: 8888
+Auth:
+  AccessSecret: AccessSecret
+  AccessExpire: 1000000000  # 1s
+Mysql:
+  Host: localhost
+  Port: 3307
+  Database: vivas-go-zero
+  Username: root
+  Password: deadpool89
+  Charset: utf8
+  Timeout: 10s
+AppidAndSecret:
+  AppId: appid
+  Secret: secret

@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 
+	// _ "greet/common/redis"
 	"greet/internal/config"
 	"greet/internal/handler"
 	"greet/internal/svc"

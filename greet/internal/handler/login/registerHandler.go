@@ -3,6 +3,7 @@ package login
 import (
 	"net/http"
 
+	"greet/common/respx"
 	"greet/internal/logic/login"
 	"greet/internal/svc"
 	"greet/internal/types"
@@ -19,11 +20,7 @@ func RegisterHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		}
 
 		l := login.NewRegisterLogic(r.Context(), svcCtx)
-		resp, err := l.Register(&req)
-		if err != nil {
-			httpx.ErrorCtx(r.Context(), w, err)
-		} else {
-			httpx.OkJsonCtx(r.Context(), w, resp)
-		}
+		msg, err := l.Register(&req)
+		respx.Response(w, "", err, msg)
 	}
 }
